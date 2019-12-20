@@ -11,7 +11,7 @@ module.exports = {
                     Values ("${name}","${description}","${location}","${dateofbirth}",NOW(),NOW())`, (err)=>{
                         if(!err){
                             let message = {
-                                status:"Registrasi Sukses",
+                                status:"Regristration Succes",
                                 name:name,
                                 location:location,
                                 description:description
@@ -19,7 +19,6 @@ module.exports = {
                             resolve(message)    
                         }else{
                             console.log(err)
-                            console.log("Error Di Query Bawah")
                             reject(err)
                         }
                     })
@@ -28,7 +27,7 @@ module.exports = {
                     Values("${name}","${logo}","${location}","${description}")`, (err)=>{
                         if(!err){
                             let message = {
-                                status:"Registrasi Sukses",
+                                status:"Regristration Succes",
                                 name:name,
                                 logo:logo,
                                 location:location,

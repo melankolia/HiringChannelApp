@@ -1,8 +1,9 @@
 const express = require('express');
 const controller = require('../Controllers/search');
+const authCheck = require('../Helpers/authCheck');
 
 const Router = express.Router();
 
-Router.get('/',controller.getAllEngineerSearch);//localhost:8000/api/engineer/skills
+Router.get('/',authCheck.engineerCheck,controller.getAllEngineerSearch);//localhost:8000/api/engineer/skills
 
 module.exports = Router;

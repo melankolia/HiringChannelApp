@@ -13,7 +13,7 @@ module.exports = {
         });
         },
     postCompany: body =>{
-        console.log(body)
+        //console.log(body)
         //let {Name,Logo,Location,Description} = body;
         return new Promise ((resolve,reject) => {
             db.query("INSERT INTO Company SET ? ", [body],

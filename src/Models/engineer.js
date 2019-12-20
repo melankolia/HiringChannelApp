@@ -1,11 +1,10 @@
 const db = require('../Configs/database');
 module.exports = {
-    getAllEngineer: query => {
+    getAllEngineer: (query) => {
         let sort = query.Sorting || 'ASC';
         let limit = query.Limit || 5;
         let page = query.Page || 1;
         let offset = (page - 1) * limit;
-
 
         return new Promise ((resolve, reject) => {
             db.query(`SELECT Engineer.id, 
