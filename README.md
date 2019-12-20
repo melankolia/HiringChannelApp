@@ -33,11 +33,16 @@ This repo contains a simple RESTfull API hiring channel application
  '/auth';
  ```
  
- # Apa itu NodeJS
+ ## Apa itu NodeJS
  ```
 Node JS dari keterangan resminya adalah “Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.” 
 artinya "Node.js adalah sebuah program yang berjalan di JavaScript dibangun di atas mesin JavaScript V8 Chrome”
 atau istilah banyak orang ungkapkan Node JS ini adalah bahasa JavaScript yang berjalan disisi server, 
 sebelum adanya Node JS bahasa JavaScript hanya berjalan disisi client saja, berkat adanya Node JS ini, 
 bahasa ini bisa dijalankan disisi server.
+ ```
+ ## Apa itu ExpressJS
+ ```
+ ExpressJS adalah salah satu framework nodejs yang sangat populer 
+ untuk memudahkan kita berinteraksi baik sistem routing sampai membuat api dengan lebih simpel
  ```
