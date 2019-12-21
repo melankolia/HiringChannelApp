@@ -30,7 +30,8 @@ This repo contains a simple RESTfull API hiring channel application
  '/api/Engineer/Skills'
  '/api/Engineer/showcase'
  '/api/Engineer/search'
- '/auth';
+ '/auth/login'
+ `/auth/register`
  ```
  
  ## Apa itu NodeJS
