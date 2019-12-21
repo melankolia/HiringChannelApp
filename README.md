@@ -30,7 +30,8 @@ This repo contains a simple RESTfull API hiring channel application
  '/api/Engineer/Skills'
  '/api/Engineer/showcase'
  '/api/Engineer/search'
- '/auth';
+ '/auth/login'
+ `/auth/register`
  ```
  
  ## Apa itu NodeJS
@@ -46,3 +47,10 @@ bahasa ini bisa dijalankan disisi server.
  ExpressJS adalah salah satu framework nodejs yang sangat populer 
  untuk memudahkan kita berinteraksi baik sistem routing sampai membuat api dengan lebih simpel
  ```
+## RESTful API
+```
+REST (Representional State Transfer) adalah suatu arsitektur metode komunikasi 
+yang menggunakan protokol HTTP untuk pertukaran data dan metode ini sering diterapkan 
+dalam pengembangan aplikasi. Dimana tujuannya adalah untuk menjadikan sistem yang memiliki performa yang baik, 
+cepat dan mudah untuk di kembangkan (scale) terutama dalam pertukaran dan komunikasi data.
+```
