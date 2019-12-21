@@ -11,7 +11,8 @@ module.exports = {
                     Values ("${name}","${description}","${location}","${dateofbirth}",NOW(),NOW())`, (err)=>{
                         if(!err){
                             let message = {
-                                status:"Regristration Succes",
+                                status:"Registration Success",
+                                username:username,
                                 name:name,
                                 location:location,
                                 description:description
@@ -22,12 +23,12 @@ module.exports = {
                             reject(err)
                         }
                     })
-                }else{
+                }else if (role === 'company'){
                     db.query(`INSERT INTO Company (Name, Logo, Location, Description)
                     Values("${name}","${logo}","${location}","${description}")`, (err)=>{
                         if(!err){
                             let message = {
-                                status:"Regristration Succes",
+                                status:"Registration Success",
                                 name:name,
                                 logo:logo,
                                 location:location,
@@ -66,8 +67,7 @@ module.exports = {
             db.query('SELECT * From users where username = ? AND role = ?',[username,role], (err, response)=>{
                 if(!err){
                     resolve(response)
-                }else{
-                    
+                }else{    
                     reject(err)
                 }
             })

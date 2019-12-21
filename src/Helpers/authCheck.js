@@ -28,20 +28,17 @@ module.exports = {
                 })
             }
                 
-            //check if token is registered with correct email
+            //check if token is registered with correct users
             if(username !== decoded.response[0].username){
                 return res.json({
-                    message : 'Token is not Valid for selected email'
+                    message : 'Token is not Valid for selected users'
                 })
             }
-            /** else{
-                res.json({
-                    message : 'Valid Token',
-                    username,
-                    authorization
+            if(decoded.response[0].role !== 'engineer'){
+                return res.json({
+                    message: 'Access Denied!, You\'re Company'
                 })
-            }*/
-
+            }
             next()
         })
     },
@@ -77,11 +74,6 @@ module.exports = {
                     message: 'Access Denied!, You\'re Engineer'
                 })
             }
-            // res.json({
-            //     message : 'Valid Token',
-            //     username,
-            //     authorization
-            // })
             next()
         })
     },
@@ -94,7 +86,7 @@ module.exports = {
         }
         const token = authorization.split(" ")[1]
         //decode JWT and validation
-        jwt.verify(token, process.env.SECRET_KEY, (err, decoded)=>{
+        jwt.verify(token, process.env.SECRET, (err, decoded)=>{
             if(err && err.name === 'JsonWebTokenError'){
                 return res.json({ 
                     message: 'Invalid Token!'
@@ -106,10 +98,10 @@ module.exports = {
                 })
             }
                 
-            //check if token is registered with correct email
-            if(email !== decoded.result[0].email){
+            //check if token is registered with correct username
+            if(username !== decoded.response[0].username){
                 return res.json({
-                    message : 'Token is not Valid for selected email'
+                    message : 'Token is not Valid for selected username'
                 })
             }
             next()
