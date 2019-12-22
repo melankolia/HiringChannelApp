@@ -33,7 +33,7 @@ module.exports = {
                           currentPage:parseInt(page),
                           nextPage:nextPage,
                           previousPage:previousPage,
-                          response: response
+                          response
                       }
                       resolve(response);
                   } //Pagination
