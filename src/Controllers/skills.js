@@ -7,12 +7,11 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            console.log(err);
+            res.json(err);
         });
     },
     postEngineerSkills: (req,res) =>{
         const {body} = req;
-        console.log(body);
         model
             .postEngineerSkills(body)
             .then(response => {
@@ -23,20 +22,18 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-                console.log(err)
+               res.json(err)
             );
     },
     patchEngineerSkills: (req,res) =>{
         const {params, query} = req;
-        console.log(params)
-        console.log(query)
         model
             .patchEngineerSkills(query,params)
             .then(response => {
                 res.json(response);
             })
             .catch(err => 
-                console.log(err)
+                res.json(err)
             );
     },
     deleteEngineerSkills:(req,res)=>{
@@ -47,7 +44,7 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            console.log(err)
+            res.json(err)
         );
     }
 }

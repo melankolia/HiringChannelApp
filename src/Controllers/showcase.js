@@ -23,7 +23,7 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-                console.log(err)
+                res.json(err)
             );
     },
     patchEngineerShowcase: (req,res) =>{
@@ -36,7 +36,7 @@ module.exports = {
                 res.json(response);
             })
             .catch(err => 
-                console.log(err)
+                res.json(err)
             );
     },
     deleteEngineerShowcase:(req,res)=>{
@@ -47,7 +47,7 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            console.log(err)
+            res.json(err)
         );
     }
 }

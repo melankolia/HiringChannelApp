@@ -8,7 +8,7 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            console.log(err);
+            res.json(err);
         });
     }
 }

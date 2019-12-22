@@ -9,7 +9,7 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            console.log(err);
+            res.json(err);
         });
     },
     postEngineer: (req,res) =>{
@@ -30,7 +30,7 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-                console.log(err)
+                res.json(err)
             );
     },
     patchEngineer: (req,res) =>{
@@ -43,7 +43,7 @@ module.exports = {
                 res.json(response);
             })
             .catch(err => 
-                console.log(err)
+                res.json(err)
             );
     },
     deleteEngineer:(req,res)=>{
@@ -54,7 +54,7 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            console.log(err)
+            res.json(err)
         );
     }
 }
