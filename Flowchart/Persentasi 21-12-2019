@@ -1,0 +1,35 @@
+1. Perkenalan
+
+2. Tugas Project backend untuk hiring channel app, 
+   untuk company yang membutuhkan engineer,  
+   pihak company dapat melihat data-data engineer seperti 
+   nama, skill, lokasi, dan portofolio engineer, 
+   sedangkan engineer tidak bisa melihat company
+   
+.  * **Project created with:**
+     * ExpressJS : https://nodejs.org/en/docs/
+     * NodeJS : https://expressjs.com/en/api.html
+     * MySql : https://dev.mysql.com/doc/
+
+    * **NPM modules:**
+        * bcryptjs
+        * body-parser
+        * dotenv
+        * express
+        * jsonwebtoken
+        * mysql
+        * morgan
+        * nodemon
+        
+3. flowchart
+   design database
+   test postman
+   sebagai engineer
+   sebagai company
+   
+4. Penjelasan
+
+5. Problem
+     - Total Page
+     - Next Page Ada Berapa
+     - Ada berapa data
