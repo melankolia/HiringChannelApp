@@ -6,7 +6,7 @@ module.exports = {
         let page = query.Page || 1;
         let offset = (page - 1) * limit;
 
-        return new Promise ((resolve, reject) => {
+        return new Promise ((resolve, reject) => { // Pagination
             db.query(`SELECT COUNT(id)  AS Total from Engineer`,(err, result) =>{
               if (!err){
                 let totalPage = Math.ceil(result[0].Total / limit)
@@ -22,7 +22,7 @@ module.exports = {
                 ORDER BY \`Engineer\`.\`Name\` ${sort}, \`Skills\` ${sort}, \`DateUpdated\` ${sort}
                 LIMIT ${limit} OFFSET ${offset}`,
                 (err, response, field) =>{
-                  if (!err){
+                  if (!err){ // Pagination
                       let nextPage = parseInt(page) + 1;
                       let previousPage = page - 1 || 1;
                       if (nextPage > totalPage){
@@ -36,7 +36,7 @@ module.exports = {
                           response: response
                       }
                       resolve(response);
-                  }
+                  } //Pagination
                   else {
                       reject(err);
                   };
