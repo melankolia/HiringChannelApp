@@ -22,19 +22,29 @@ module.exports = {
                 ORDER BY \`Engineer\`.\`Name\` ${sort}, \`Skills\` ${sort}, \`DateUpdated\` ${sort}
                 LIMIT ${limit} OFFSET ${offset}`,
                 (err, response, field) =>{
+
                   if (!err){ // Pagination
-                      let nextPage = parseInt(page) + 1;
-                      let previousPage = page - 1 || 1;
+                      let nextPage = []
+                      let previousPage = []
                       if (nextPage > totalPage){
                           nextPage = totalPage
+                      }
+                      for (i = parseInt(page) + 1; i <= totalPage; i++){
+                          nextPage.push(i) 
+                      }
+                      for (i = parseInt(page) - 1; i >= 1; i--){
+                          previousPage.push(i)
                       }
                       response = {
                           totalpage : totalPage,
                           currentPage:parseInt(page),
+                          totalNextPage:nextPage.length,
                           nextPage:nextPage,
+                          totalPreviousPage:previousPage.length,
                           previousPage:previousPage,
                           response
                       }
+
                       resolve(response);
                   } //Pagination
                   else {
