@@ -7,7 +7,7 @@ module.exports = {
         let offset = (page - 1) * limit;
 
         return new Promise ((resolve, reject) => { // Pagination
-            db.query(`SELECT COUNT(id)  AS Total from Engineer`,(err, result) =>{
+            db.query(`SELECT COUNT(id) AS Total from Engineer`,(err, result) =>{
               if (!err){
                 let totalPage = Math.ceil(result[0].Total / limit)
                 db.query(`SELECT Engineer.id, 
