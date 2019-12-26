@@ -2,7 +2,7 @@ const db = require('../Configs/database');
 module.exports = {
     getAllEngineer: (query) => {
         let sort = query.Sorting || 'ASC';
-        let limit = query.Limit || 5;
+        let limit = query.Limit || 100;
         let page = query.Page || 1;
         let offset = (page - 1) * limit;
 

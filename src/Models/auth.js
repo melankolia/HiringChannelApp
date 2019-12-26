@@ -1,14 +1,14 @@
 const db = require('../Configs/database');
 module.exports = {
     register: (req,username,password,role) => {
-        const {name, description,location,dateofbirth,logo} = req.body
+        const {name, description,location,logo} = req.body
 
         return new Promise ((resolve, reject) => {
             db.query('INSERT INTO users SET username=?,password=?,role=?',[username,password,role],(err) =>{
               if (!err){
                 if(role==='engineer'){
-                    db.query(`INSERT INTO Engineer (Name, Description, Location,DateofBirth,DateCreated,DateUpdated) 
-                    Values ("${name}","${description}","${location}","${dateofbirth}",NOW(),NOW())`, (err)=>{
+                    db.query(`INSERT INTO Engineer (Username, Name, Description, Location,DateCreated,DateUpdated) 
+                    Values ("${username}","${name}","${description}","${location}",NOW(),NOW())`, (err)=>{
                         if(!err){
                             let message = {
                                 status:"Registration Success",
@@ -24,8 +24,8 @@ module.exports = {
                         }
                     })
                 }else if (role === 'company'){
-                    db.query(`INSERT INTO Company (Name, Logo, Location, Description)
-                    Values("${name}","${logo}","${location}","${description}")`, (err)=>{
+                    db.query(`INSERT INTO Company (Username, Name, Logo, Location, Description)
+                    Values("${username}","${name}","${logo}","${location}","${description}")`, (err)=>{
                         if(!err){
                             let message = {
                                 status:"Registration Success",

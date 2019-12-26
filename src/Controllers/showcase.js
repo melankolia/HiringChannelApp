@@ -7,7 +7,9 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            console.log(err);
+            res.json({
+                status:'error',
+                err});
         });
     },
     postEngineerShowcase: (req,res) =>{
@@ -23,7 +25,9 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-                res.json(err)
+                res.json({
+                    status:'error',
+                    err})
             );
     },
     patchEngineerShowcase: (req,res) =>{
@@ -36,7 +40,9 @@ module.exports = {
                 res.json(response);
             })
             .catch(err => 
-                res.json(err)
+                res.json({
+                    status:'error',
+                    err})
             );
     },
     deleteEngineerShowcase:(req,res)=>{
@@ -47,7 +53,9 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            res.json(err)
+            res.json({
+                status:'error',
+                err})
         );
     }
 }

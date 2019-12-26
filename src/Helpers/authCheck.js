@@ -46,6 +46,7 @@ module.exports = {
         const { authorization, username } = req.headers
         if(!authorization || !username){
             return res.json({
+                status: 'error',
                 message: 'Unauthorized'
             })
         }
@@ -54,11 +55,13 @@ module.exports = {
         jwt.verify(token, process.env.SECRET, (err, decoded)=>{
             if(err && err.name === 'JsonWebTokenError'){
                 return res.json({ 
+                    status: 'error',
                     message: 'Invalid Token!'
                 })
             } 
             if(err && err.name === 'TokenExpiredError'){
                 return res.json({
+                    status: 'error',
                     message: 'Expired Token!'
                 })
             }
@@ -66,11 +69,13 @@ module.exports = {
             //check if token is registered with correct username
             if(username !== decoded.response[0].username){
                 return res.json({
+                    status: 'error',
                     message : 'Token is not Valid for selected username'
                 })
             }
             if(decoded.response[0].role !== 'company'){
                 return res.json({
+                    status: 'error',
                     message: 'Access Denied!, You\'re Engineer'
                 })
             }
@@ -81,6 +86,7 @@ module.exports = {
         const { authorization, username } = req.headers
         if(!authorization || !username){
             return res.json({
+                status: 'error',
                 message: 'Unauthorized'
             })
         }
@@ -89,11 +95,13 @@ module.exports = {
         jwt.verify(token, process.env.SECRET, (err, decoded)=>{
             if(err && err.name === 'JsonWebTokenError'){
                 return res.json({ 
+                    status: 'error',
                     message: 'Invalid Token!'
                 })
             } 
             if(err && err.name === 'TokenExpiredError'){
                 return res.json({
+                    status: 'error',
                     message: 'Expired Token!'
                 })
             }
@@ -101,6 +109,7 @@ module.exports = {
             //check if token is registered with correct username
             if(username !== decoded.response[0].username){
                 return res.json({
+                    status: 'error',
                     message : 'Token is not Valid for selected username'
                 })
             }

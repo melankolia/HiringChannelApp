@@ -7,7 +7,9 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            res.json(err);
+            res.json({
+                status:'error',
+                err});
         });
     },
     postEngineerSkills: (req,res) =>{
@@ -22,7 +24,9 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-               res.json(err)
+               res.json({
+                status:'error',   
+                err})
             );
     },
     patchEngineerSkills: (req,res) =>{
@@ -33,7 +37,9 @@ module.exports = {
                 res.json(response);
             })
             .catch(err => 
-                res.json(err)
+                res.json({
+                    status:'error',
+                    err})
             );
     },
     deleteEngineerSkills:(req,res)=>{
@@ -44,7 +50,9 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            res.json(err)
+            res.json({
+                status:'error',
+                err})
         );
     }
 }

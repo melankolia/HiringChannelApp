@@ -7,7 +7,9 @@ module.exports = {
         .then(response => {
             form.success(res,response)})
         .catch(err => {
-            res.json(err);
+            res.json({
+                status:'error',
+                err});
         });
 
     },
@@ -27,7 +29,9 @@ module.exports = {
                 form.success(res,data);
             })
             .catch(err =>
-                res.json(err)
+                res.json({
+                    status:'error',
+                    err})
             );
     },
     patchCompany: (req,res) =>{
@@ -40,7 +44,9 @@ module.exports = {
                 res.json(response);
             })
             .catch(err => 
-                res.json(err)
+                res.json({
+                    status:'error',
+                    err})
             );
     },
     deleteCompany:(req,res)=>{
@@ -51,7 +57,9 @@ module.exports = {
             res.json(response);
         })
         .catch(err =>
-            res.json(err)
+            res.json({
+                status:'error',
+                err})
         );
     }
 };
