@@ -61,5 +61,19 @@ module.exports = {
                 status:'error',
                 err})
         );
+    },
+    getCompany:(req,res)=>{
+        const {params} = req;
+        model
+        .getCompany(params)
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => {
+            res.json({
+                status:'error',
+                err
+            })
+        })
     }
 };

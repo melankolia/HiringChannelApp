@@ -1,6 +1,7 @@
 const db = require('../Configs/database');
 module.exports = {
     getAllEngineer: (query) => {
+        
         let sort = query.Sorting || 'ASC';
         let limit = query.Limit || 100;
         let page = query.Page || 1;
@@ -10,7 +11,7 @@ module.exports = {
             db.query(`SELECT COUNT(id) AS Total from Engineer`,(err, result) =>{
               if (!err){
                 let totalPage = Math.ceil(result[0].Total / limit)
-                db.query(`SELECT Engineer.id, 
+                db.query(`SELECT Engineer.id,Engineer.username, 
                 Engineer.Name,Engineer.Description,Engineer.Location,
                 GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
                 GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
@@ -109,6 +110,29 @@ module.exports = {
                 }
             }
             )
+        })
+    },
+    getEngineer: params =>{
+        console.log(params)
+        return new Promise((resolve,reject) =>{
+            db.query(`SELECT Engineer.id,Engineer.username, 
+            Engineer.Name,Engineer.Description,Engineer.Location,
+            GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
+            GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
+            Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
+            FROM \`Engineer\` 
+            LEFT JOIN \`Showcases\`ON Engineer.id = Showcases.id_Engineer 
+            LEFT JOIN \`Skills\` ON Engineer.id = \`Skills\`.\`id_Engineer\`
+            WHERE ? 
+            GROUP BY Engineer.id`, [params],
+            (err,response) => {
+                if(!err){
+                    resolve(response);
+                }
+                else {
+                    reject(err);
+                }
+            })
         })
     }
 

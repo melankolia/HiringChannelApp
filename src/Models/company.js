@@ -55,5 +55,20 @@ module.exports = {
             }
             )
         })
+    },
+    getCompany: params =>{
+        return new Promise((resolve,reject) => {
+            db.query(`SELECT * FROM Company WHERE ?`,
+            [params],
+            (err, response) => {
+                if (!err){
+                    resolve(response)
+                }
+                else {
+                    reject(err)
+                }
+            }
+            )
+        })
     }
 };

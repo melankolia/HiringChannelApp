@@ -64,5 +64,19 @@ module.exports = {
                 status:'error',
                 err})
         );
+    },
+    getEngineer:(req,res)=>{
+        const {params} = req;
+        model
+        .getEngineer(params)
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => {
+            res.json({
+                status:'error',
+                err
+            })
+        })
     }
 }
