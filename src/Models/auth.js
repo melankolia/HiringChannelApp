@@ -65,6 +65,7 @@ module.exports = {
         console.log(role)
         return new Promise((resolve, reject)=>{
             db.query('SELECT * From users where username = ? AND role = ?',[username,role], (err, response)=>{
+                console.log(response)
                 if(!err){
                     resolve(response)
                 }else{    

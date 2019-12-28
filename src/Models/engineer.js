@@ -10,6 +10,7 @@ module.exports = {
         return new Promise ((resolve, reject) => { // Pagination
             db.query(`SELECT COUNT(id) AS Total from Engineer`,(err, result) =>{
               if (!err){
+                let totalData = result[0].Total
                 let totalPage = Math.ceil(result[0].Total / limit)
                 db.query(`SELECT Engineer.id,Engineer.username, 
                 Engineer.Name,Engineer.Description,Engineer.Location,
@@ -27,6 +28,7 @@ module.exports = {
                   if (!err){ // Pagination
                       let nextPage = []
                       let previousPage = []
+                      let arrayPage = []
                       if (nextPage > totalPage){
                           nextPage = totalPage
                       }
@@ -36,8 +38,13 @@ module.exports = {
                       for (i = parseInt(page) - 1; i >= 1; i--){
                           previousPage.push(i)
                       }
+                      for (i = parseInt(page); i <= totalPage; i++){
+                          arrayPage.push(i)
+                      }
                       response = {
+                          totalData: totalData,
                           totalpage : totalPage,
+                          arrayPage: arrayPage,
                           currentPage:parseInt(page),
                           totalNextPage:nextPage.length,
                           nextPage:nextPage,
