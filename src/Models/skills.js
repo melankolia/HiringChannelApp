@@ -42,10 +42,12 @@ module.exports = {
             )
         })
     },
-    deleteEngineerSkills: params => {
+    deleteEngineerSkills: req => {
+        const {params, query} = req;
         return new Promise((resolve,reject) => {
-            db.query('DELETE FROM Skills WHERE ?',
-            [params],
+            
+            db.query('DELETE FROM Skills WHERE \`id_Engineer\` = ? AND \`SkillsName\` = ?',
+            [params.id_Engineer,query[0]],
             (err,response) => {
                 if (!err){
                     resolve(response);

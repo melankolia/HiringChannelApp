@@ -91,6 +91,7 @@ module.exports = {
                         + n.getHours()+ ":"
                         + n.getMinutes()+ ":"
                         + n.getSeconds();
+        console.log(query, params)
         return new Promise ((resolve, reject) => {
             db.query('UPDATE Engineer SET `DateUpdated` = ?, ? where ?', [currentDate,query,params],
             (err,response) => {

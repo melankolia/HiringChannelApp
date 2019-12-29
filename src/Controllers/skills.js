@@ -43,9 +43,8 @@ module.exports = {
             );
     },
     deleteEngineerSkills:(req,res)=>{
-        const {params} = req;
         model
-        .deleteEngineerSkills(params)
+        .deleteEngineerSkills(req)
         .then(response => {
             res.json(response);
         })

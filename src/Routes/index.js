@@ -11,7 +11,7 @@ const Router = express.Router();
 Router.use('/',landingPage);
 Router.use('/api/Company', company);
 Router.use('/api/Engineer', engineer);
-Router.use('/api/Engineer/Skills',skills);
+Router.use('/api/Engineer/skills',skills);
 Router.use('/api/Engineer/showcase',showcase);
 Router.use('/api/Engineer/search',search);
 Router.use('/auth',auth);
