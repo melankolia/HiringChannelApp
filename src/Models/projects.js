@@ -1,16 +1,18 @@
 const db = require("../Configs/database");
 module.exports = {
-  getprojects: () => {
+  getprojects: (req) => {
+    console.log(req.query)
     return new Promise((resolve, reject) => {
       db.query(
         `SELECT request_project.No, request_project.id_engineer, request_project.id_company, 
-                             Company.Name,request_project.name_project,request_project.status_project, request_project.status_engineer
+                Company.Name,request_project.name_project,request_project.status_project, request_project.status_engineer
                       FROM request_project 
-                      LEFT JOIN Company 
-                      ON  request_project.id_company = Company.id`,
+                      LEFT JOIN Company ON  request_project.id_company = Company.id
+                      WHERE ? `, [req.query],
         (err, response) => {
+          
           if (!err) {
-            resolve(response);
+              resolve(response)
           } else {
             reject(err);
           }
@@ -36,24 +38,23 @@ module.exports = {
         }
       );
     });
+  },
+  postproject: (req,res) =>{
+      console.log(req.body)
+      //let {Name,Logo,Location,Description} = body;
+      //const {name,description,id_skill,location,dateofbirth,id_showcase} = body;
+      return new Promise ((resolve,reject) => {
+          db.query(`INSERT INTO request_project SET ?`,[req.body],
+          (err,response) =>{
+              if (!err){
+                  resolve(response);
+              }
+              else{
+                  reject(err);
+              }
+          })
+      })
   }
-  // },
-  // postEngineerSkills: body =>{
-  //     console.log(body)
-  //     //let {Name,Logo,Location,Description} = body;
-  //     //const {name,description,id_skill,location,dateofbirth,id_showcase} = body;
-  //     return new Promise ((resolve,reject) => {
-  //         db.query(`INSERT INTO Skills SET ?`,[body],
-  //         (err,response) =>{
-  //             if (!err){
-  //                 resolve(response);
-  //             }
-  //             else{
-  //                 reject(err);
-  //             }
-  //         })
-  //     })
-  // },
 
   // deleteEngineerSkills: req => {
   //     const {params, query} = req;

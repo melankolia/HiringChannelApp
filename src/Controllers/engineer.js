@@ -84,5 +84,16 @@ module.exports = {
           err
         });
       });
+  },
+  getEngineerDetail: (req, res) => {
+    const { params } = req;
+    model
+      .getEngineerDetail(params)
+      .then(response => {
+        res.json(response);
+      })
+      .catch(err => {
+        res.json({ status: "error", err });
+      });
   }
 };
