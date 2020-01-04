@@ -23,7 +23,7 @@ A Hiring partner app for company scouting and hiring an available Engineer based
 3. Input Bearer Token in Authorization header in Postman
 4. Enter desired route
 
- # APP Route
+## APP Route
  ```
  '/'
  '/api/Company'
@@ -34,7 +34,7 @@ A Hiring partner app for company scouting and hiring an available Engineer based
  '/auth/login'
  `/auth/register`
  ```
-# Technologies
+## Technologies
 
 * **Project created with:**
 	* ExpressJS : https://nodejs.org/en/docs/
@@ -53,7 +53,7 @@ A Hiring partner app for company scouting and hiring an available Engineer based
 	* morgan
 	* nodemon
 
-# Testing
+## Testing
  - These project run in local computer. 
  - Tested with Postman : `https://www.getpostman.com/api-documentation-generator`
 
