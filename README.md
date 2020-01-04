@@ -1,6 +1,40 @@
-# HiringChannelApp
-This repo contains a simple RESTfull API hiring channel application
-# Technologies
+# HiringChannelApp RESTful API
+This repo contains a simple RESTful API hiring channel application
+
+## Introduction
+A Hiring partner app for company scouting and hiring an available Engineer based on preference (skill, location, etc).
+
+---
+
+## Feature
+- Crud Company
+- Crud Engineer
+- Register and Login user
+- Sort and filter engineer with multiple parameter
+- Engineer Pagination
+- Username and password validation (regex)
+- Password Encryption (base64)
+- Route Authorization
+    -  Rescricted Data read (Based on token type)
+
+## How to use
+1. Register as Company/Engineer
+2. Login and get Token
+3. Input Bearer Token in Authorization header in Postman
+4. Enter desired route
+
+## APP Route
+ ```
+ '/'
+ '/api/Company'
+ '/api/Engineer'
+ '/api/Engineer/Skills'
+ '/api/Engineer/showcase'
+ '/api/Engineer/search'
+ '/auth/login'
+ `/auth/register`
+ ```
+## Technologies
 
 * **Project created with:**
 	* ExpressJS : https://nodejs.org/en/docs/
@@ -19,38 +53,8 @@ This repo contains a simple RESTfull API hiring channel application
 	* morgan
 	* nodemon
 
-# Testing
+## Testing
  - These project run in local computer. 
  - Tested with Postman : `https://www.getpostman.com/api-documentation-generator`
- # Endpoint
- ```
- '/'
- '/api/Company'
- '/api/Engineer'
- '/api/Engineer/Skills'
- '/api/Engineer/showcase'
- '/api/Engineer/search'
- '/auth/login'
- `/auth/register`
- ```
+
  
- ## Apa itu NodeJS
- ```
-Node JS dari keterangan resminya adalah “Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.” 
-artinya "Node.js adalah sebuah program yang berjalan di JavaScript dibangun di atas mesin JavaScript V8 Chrome”
-atau istilah banyak orang ungkapkan Node JS ini adalah bahasa JavaScript yang berjalan disisi server, 
-sebelum adanya Node JS bahasa JavaScript hanya berjalan disisi client saja, berkat adanya Node JS ini, 
-bahasa ini bisa dijalankan disisi server.
- ```
- ## Apa itu ExpressJS
- ```
- ExpressJS adalah salah satu framework nodejs yang sangat populer 
- untuk memudahkan kita berinteraksi baik sistem routing sampai membuat api dengan lebih simpel
- ```
-## RESTful API
-```
-REST (Representional State Transfer) adalah suatu arsitektur metode komunikasi 
-yang menggunakan protokol HTTP untuk pertukaran data dan metode ini sering diterapkan 
-dalam pengembangan aplikasi. Dimana tujuannya adalah untuk menjadikan sistem yang memiliki performa yang baik, 
-cepat dan mudah untuk di kembangkan (scale) terutama dalam pertukaran dan komunikasi data.
-```
