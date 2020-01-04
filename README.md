@@ -17,16 +17,13 @@ A Hiring partner app for company scouting and hiring an available Engineer based
 - Route Authorization
     -  Rescricted Data read (Based on token type)
 
-
-## APP Route
-
 ## How to use
 1. Register as Company/Engineer
 2. Login and get Token
 3. Input Bearer Token in Authorization header in Postman
 4. Enter desired route
 
- # Endpoint
+ # APP Route
  ```
  '/'
  '/api/Company'
