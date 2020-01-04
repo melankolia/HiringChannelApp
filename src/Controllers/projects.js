@@ -40,5 +40,18 @@ module.exports = {
           err
         });
       });
+  },
+  getprojectslength: (req, res) => {
+    model
+      .getprojectslength(req)
+      .then(response => {
+        form.success(res, response);
+      })
+      .catch(err => {
+        res.json({
+          status: "error",
+          err
+        });
+      });
   }
 };
