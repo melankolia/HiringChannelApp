@@ -10,7 +10,7 @@ const router = require("./src/Routes/index");
 const index = express();
 
 index.listen(process.env.PORT, () => console.log("Server Berjalan"));
-index.use(logger("dev"));
+// index.use(logger("dev"));
 index.use(helmet.xssFilter());
 index.use(cors());
 index.use(bodyParser.urlencoded({ extended: false }));
