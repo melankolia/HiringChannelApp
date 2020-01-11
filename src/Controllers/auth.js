@@ -78,7 +78,7 @@ module.exports = {
           }
         })
         .catch(err => {
-          err = "Wrong Role";
+          err = "Invalid Username & Password";
           res.json({
             status: "error",
             message: err
