@@ -15,7 +15,7 @@ module.exports = {
           let totalData = result[0].Total;
           let totalPage = Math.ceil(totalData / limit);
           db.query(
-            `SELECT Engineer.id, Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description
+            `SELECT Engineer.id, Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description,
                     GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcases,
                     GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
                     Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
