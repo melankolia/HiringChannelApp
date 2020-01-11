@@ -73,7 +73,6 @@ module.exports = {
   },
   login: (username) => {
     console.log(username);
-    console.log(role);
     return new Promise((resolve, reject) => {
       db.query(
         "SELECT * From users where username = ?",
