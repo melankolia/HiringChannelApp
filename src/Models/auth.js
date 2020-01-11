@@ -1,7 +1,7 @@
 const db = require("../Configs/database");
 module.exports = {
   register: (req, username, password, role) => {
-    const { name, description, location, logo } = req.body;
+    const { name, description, title, location, logo } = req.body;
 
     return new Promise((resolve, reject) => {
       db.query(
@@ -11,8 +11,8 @@ module.exports = {
           if (!err) {
             if (role === "engineer") {
               db.query(
-                `INSERT INTO Engineer (Username, Name, Description, Location,DateCreated,DateUpdated) 
-                    Values ("${username}","${name}","${description}","${location}",NOW(),NOW())`,
+                `INSERT INTO Engineer (Username, Name,Title, Description, Location,DateCreated,DateUpdated) 
+                    Values ("${username}","${name}","${title}","${description}","${location}",NOW(),NOW())`,
                 err => {
                   if (!err) {
                     let message = {
@@ -20,7 +20,8 @@ module.exports = {
                       username: username,
                       name: name,
                       location: location,
-                      description: description
+                      description: description,
+                      title: title
                     };
                     resolve(message);
                   } else {
@@ -71,7 +72,7 @@ module.exports = {
       );
     });
   },
-  login: (username) => {
+  login: username => {
     console.log(username);
     return new Promise((resolve, reject) => {
       db.query(

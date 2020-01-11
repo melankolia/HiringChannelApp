@@ -26,6 +26,7 @@ module.exports = {
         const data = {
           id: response.id,
           name: body.name,
+          title: body.title,
           description: body.description,
           dateofbirth: body.dateofbirth,
           id_skills: body.id_skills,

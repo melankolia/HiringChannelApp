@@ -14,7 +14,7 @@ module.exports = {
           let totalPage = Math.ceil(result[0].Total / limit);
           db.query(
             `SELECT Engineer.id,Engineer.username, 
-                Engineer.Name,Engineer.Description,Engineer.Location,
+                Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description,
                 GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
                 GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
                 Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
@@ -70,11 +70,11 @@ module.exports = {
   postEngineer: body => {
     //console.log(body)
     //let {Name,Logo,Location,Description} = body;
-    const { name, description, location, dateofbirth } = body;
+    const { name, description, title, location, dateofbirth } = body;
     return new Promise((resolve, reject) => {
       db.query(
-        `INSERT INTO Engineer (Name, Description, Location,DateofBirth,DateCreated,DateUpdated) 
-            Values ("${name}","${description}","${location}","${dateofbirth}",NOW(),NOW())`,
+        `INSERT INTO Engineer (Name, Description,Title, Location,DateofBirth,DateCreated,DateUpdated) 
+            Values ("${name}","${title}","${description}","${location}","${dateofbirth}",NOW(),NOW())`,
         (err, response) => {
           if (!err) {
             resolve(response);
@@ -130,7 +130,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       db.query(
         `SELECT Engineer.id,Engineer.username, 
-            Engineer.Name,Engineer.Description,Engineer.Location,
+            Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description,
             GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
             GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
             Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
@@ -151,11 +151,11 @@ module.exports = {
     });
   },
   getEngineerDetail: params => {
-    console.log(params)
-    params = params.id
-    return new Promise((resolve, reject)=> {
+    console.log(params);
+    params = params.id;
+    return new Promise((resolve, reject) => {
       db.query(
-        `SELECT Engineer.id,Engineer.username, Engineer.Name,Engineer.Description,Engineer.Location,
+        `SELECT Engineer.id,Engineer.username, Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description.
             GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
             GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
             Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
@@ -164,14 +164,15 @@ module.exports = {
             LEFT JOIN \`Skills\` ON Engineer.id = \`Skills\`.\`id_Engineer\`
             WHERE Engineer.id = ?
             GROUP BY Engineer.id `,
-            [params], (err, response) => {
-        if (!err) {
-          resolve(response)
+        [params],
+        (err, response) => {
+          if (!err) {
+            resolve(response);
+          } else {
+            reject(err);
+          }
         }
-        else {
-          reject(err)
-        }
-      })
-    })
+      );
+    });
   }
 };
