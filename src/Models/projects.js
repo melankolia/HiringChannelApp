@@ -71,26 +71,26 @@ module.exports = {
         (err, response) => {
           if (!err) {
             if (response[0].status) {
-              console.log("MASOK");
+              // console.log("MASOK");
+              
               let array = response[0].status.split(",");
-              console.log(array);
               let project = [];
               let projectstatus = 0;
-
-              for (i = 0; i < array.length; i++) {
+              
+              for (i = 0; i <= array.length; i++) {
                 if (array[i] === "Completed") {
-                  console.log(array[i]);
+                  console.log('+1', array[i]);
                   project.push(array[i]);
                   projectstatus++;
                 } else if (array[i] === "Abandoned") {
-                  console.log(array[i]);
+                  console.log('+0', array[i]);
                   project.push(array[i]);
                 } else {
                   continue;
                 }
               }
-              console.log("1 ", projectstatus);
-              console.log("2 ", project.length);
+              // console.log("1 ", projectstatus);
+              // console.log("2 ", project.length);
 
               let successrate;
 
@@ -100,13 +100,13 @@ module.exports = {
                 successrate = "0 %";
               }
 
-              console.log(successrate);
+              // console.log(successrate);
               response = {
                 project: project.length,
                 successrate: successrate
               };
             } else {
-              console.log("DAK MASOK");
+              // console.log("DAK MASOK");
               response = {
                 project: 0,
                 successrate: "0 %"

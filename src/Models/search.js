@@ -1,6 +1,7 @@
 const db = require("../Configs/database");
 module.exports = {
   getAllEngineerSearch: query => {
+    console.log(query)
     const sorting = query.sorting || "ASC";
     const searchName = query.searchName || "";
     const searchSkills = query.searchSkills || "";

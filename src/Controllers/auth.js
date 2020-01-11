@@ -36,7 +36,6 @@ module.exports = {
   },
   login: (req, res) => {
     //console.log(req.body.username)
-    const role = req.body.role;
     const username = req.body.username;
     const password = req.body.password;
     console.log(req.body);
@@ -47,7 +46,7 @@ module.exports = {
       });
     } else {
       model
-        .login(username, role)
+        .login(username)
         .then(response => {
           //console.log(response[0].password)
           //console.log(password)

@@ -71,13 +71,13 @@ module.exports = {
       );
     });
   },
-  login: (username, role) => {
+  login: (username) => {
     console.log(username);
     console.log(role);
     return new Promise((resolve, reject) => {
       db.query(
-        "SELECT * From users where username = ? AND role = ?",
-        [username, role],
+        "SELECT * From users where username = ?",
+        [username],
         (err, response) => {
           console.log(response);
           if (!err) {
