@@ -155,7 +155,7 @@ module.exports = {
     params = params.id;
     return new Promise((resolve, reject) => {
       db.query(
-        `SELECT Engineer.id,Engineer.username, Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description
+        `SELECT Engineer.id,Engineer.username, Engineer.Name,Engineer.Title,Engineer.Location,Engineer.Description,
             GROUP_CONCAT(DISTINCT Showcases.Showcase) AS Showcase ,
             GROUP_CONCAT(DISTINCT Skills.SkillsName) AS Skills,
             Engineer.DateofBirth,Engineer.DateCreated, Engineer.DateUpdated 
