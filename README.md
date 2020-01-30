@@ -18,21 +18,25 @@ A Hiring partner app for company scouting and hiring an available Engineer based
     -  Rescricted Data read (Based on token type)
 
 ## How to use
-1. Register as Company/Engineer
-2. Login and get Token
-3. Input Bearer Token in Authorization header in Postman
-4. Enter desired route
+- Make a new database and import hiring_channel.sql
+- Create .env file on your root project folder and fill with :
+	- DB_HOST= Your database host
+	- DB_USER= Your database username
+	- DB_PASS= Your database password
+	- DB_NAME= Your database name
+	- PORT= Port to run the app
+	- SECRET= Secret Key for JWT
+- Open terminal at your root project folder and Run 'npm i node'
+- Run 'npm start' to start the app
+- Open Postman
+	- Register as Company/Engineer
+	- Login and get Token
+	- Input Bearer Token in Authorization header in Postman
+	- Enter desired route
 
-## APP Route
+## Postman Documentations
  ```
- '/'
- '/api/Company'
- '/api/Engineer'
- '/api/Engineer/Skills'
- '/api/Engineer/showcase'
- '/api/Engineer/search'
- '/auth/login'
- `/auth/register`
+https://documenter.getpostman.com/view/9798453/SWTBexY7?version=latest
  ```
 ## Technologies
 
